@@ -37,6 +37,30 @@ $(document).ready(function() {
     $('.xoathongbao').click(e => {
         let data = e.target
         let id = data.dataset.id
+        console.log(data)
+        $.ajax({
+            url: '/tatcathongbao/xoa/'+id,
+            type: 'POST',
+        })
+        .then(data => console.log(data))
+    })
+    $('.suathongbao').click(e => {
+        let data = e.target
+        let id = data.dataset.id
+        console.log(data)
+        let tieude = $('#tieudethongbao').val()
+        let noidungchinhsua = $('#noidungchinhsua').val()
+        let khoa = $('#thongbaokhoa').val()
+        $.ajax({
+            url: '/tatcathongbao/sua/'+id,
+            type: 'POST',
+            data: {
+                tieude: tieude,
+                noidungchinhsua: noidungchinhsua,
+                khoa: khoa
+            }
+        })
+        .then(data => console.log(data))
     })
 })
 getPagination('#table-id');

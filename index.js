@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
+require('dotenv').config()
 
 const BaiViet = require('./models/Baiviet')
 const BinhLuan = require('./models/Binhluan')
@@ -389,4 +390,4 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.ptpeb.mongodb.net/hoaibao?r
     useCreateIndex: true
 })
 .then(console.log('CONECTED'))
-app.listen(9191, () => console.log('http://localhost:9191'))
+app.listen(process.env.PORT, () => console.log('http://localhost:9191'))

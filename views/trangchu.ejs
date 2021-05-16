@@ -228,7 +228,7 @@
                 <% thongbaos = thongbaos.reverse() %> 
                 <% thongbaos.forEach(thongbao => { %> 
                 <a href="/tatcathongbao/<%= thongbao._id %>" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="jumbotron">
+                  <div class="jumbotron-fluid" style="background-color: transparent;">
                     <h5 class="mb-1"><%= thongbao.tieude %></h5>
                     <p><%= thongbao.khoa %></p>
                     <p class="mb-1"><%= thongbao.noidung %></p>                  </div>  

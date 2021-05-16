@@ -383,7 +383,7 @@ app.get('/tatcathongbao/:id' , (req , res)=>{
 })
 
 mongoose.set('useFindAndModify', false);
-mongoose.connect('mongodb://localhost/hoaibao', {
+mongoose.connect('mongodb+srv://admin:admin@cluster0.ptpeb.mongodb.net/hoaibao?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true

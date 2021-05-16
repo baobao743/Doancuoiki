@@ -228,12 +228,13 @@
                 <% thongbaos = thongbaos.reverse() %> 
                 <% thongbaos.forEach(thongbao => { %> 
                 <a href="/tatcathongbao/<%= thongbao._id %>" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
+                  <div class="jumbotron">
                     <h5 class="mb-1"><%= thongbao.tieude %></h5>
-                    <small class="text-muted"><%= thongbao.khoa %></small>
-                    </div>
-                    <p class="mb-1"><%= thongbao.noidung %></p>
-                    <small class="text-muted"><%= thongbao.thoigian %></small>
+                    <p><%= thongbao.khoa %></p>
+                    <p class="mb-1"><%= thongbao.noidung %></p>                  </div>  
+                  </div>
+                    
+                    
                 </a>
                 <% }) %>
 

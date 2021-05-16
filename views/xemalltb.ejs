@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all news</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light collapse navbar-collaps">
+    <a class="navbar-brand">Student Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/bangtin">Trang chủ <span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+          <% if(acc.role == 'sinhvien') { %>
+            <a class="btn btn-success" role="button" data-toggle="collapse" href="#collapseblog" aria-controls="collapseblog" >Đăng bài viết</a>
+          <% } else { %>
+            <a class="btn btn-success" role="button" data-toggle="collapse" href="#collapsethongbao" aria-controls="collapsethongbao" >Đăng thông báo</a>
+          <% } %>
+        </li>
+        
+      </ul>
+      <span class="navbar-text nav-item dropdown">
+        
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong><%= acc.ten %> </strong>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if(acc.role != 'sinhvien') { %>
+                <a type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">
+                  Đổi mật khẩu
+                </a>
+              <% } %>
+              <% if(acc.role == 'admin') { %>
+                <a href="/taotaikhoan" class="dropdown-item">
+                  Tạo tài khoản
+                </a>
+              <% } %>
+              <a class="dropdown-item" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >Chỉnh sửa thông tin cá nhân</a>
+              <a class="dropdown-item" href="/dangxuat">Đăng xuất</a>
+            </div>
+          
+      </span>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="container p-3 position-center" action="/doimatkhau" method="POST">
+                <h3>Chỉnh sửa thông tin cá nhân</h3>
+                <div class="form-group">
+                  <label>Mật khẩu cũ:</label>
+                  <input type="password" class="form-control" id="passcu" name="passcu" required>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu mới:</label>
+                    <input type="password" class="form-control" id="passmoi" name="passmoi" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div class="collapse" id="collapseExample">
+    <form class="container p-3 position-center" action="/capnhatthongtin" method="POST">
+        <h3>Chỉnh sửa thông tin cá nhân</h3>
+        <div class="form-group">
+          <label>Tên:</label>
+          <input type="text" class="form-control" id="ten" name="ten" placeholder="Nhập tên">
+        </div>
+
+        <div class="form-group">
+            <label>Lớp:</label>
+            <input type="text" class="form-control" id="lop" name="lop" placeholder="Nhập lớp">
+        </div>
+
+        <div class="form-group">
+            <label>Khoa:</label>
+            <input type="text" class="form-control" id="khoa" name="khoa" placeholder="Nhập khoa">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+
+<!-- Dang bai -->
+<div class="collapse" id="collapseblog">
+  <form class="container p-3 position-center" action="/bangtin/taobaiviet" method="POST">
+      <h3 class="text-center">Đăng bài viết mới</h3>
+      <div class="form-group">
+        <textarea name="noidung" id="noidung" cols="160" rows="10" placeholder="Bạn đang nghĩ gì ?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div class="collapse" id="collapsethongbao">
+  <form class="container p-3 position-center" action="/bangtin/taothongbao" method="POST">
+      <h3 class="text-center">Đăng thông báo mới</h3>
+      <div class="form-group">
+        <span>Tiêu đề:</span>
+        <input type="text" name="tieude" id="tieude">
+        <span>Nội dung:</span>
+        <textarea name="noidungthongbao" id="noidungthongbao" cols="160" rows="10" placeholder="Bạn đang nghĩ gì ?"></textarea>
+        <span>Khoa:</span>
+        <select id="khoa" name="khoa" class="form-control">
+          <option value="KHOA HỌC THỂ THAO">KHOA HỌC THỂ THAO</option>
+          <option value="KHOA HỌC ỨNG DỤNG">KHOA HỌC ỨNG DỤNG</option>
+          <option value="KHOA HỌC XÃ HỘI VÀ NHÂN VĂN">KHOA HỌC XÃ HỘI VÀ NHÂN VĂN</option>
+          <option value="CÔNG NGHỆ THÔNG TIN">CÔNG NGHỆ THÔNG TIN</option>
+          <option value="ĐIỆN - ĐIỆN TỬ">ĐIỆN - ĐIỆN TỬ</option>
+          <option value="TOÁN - THỐNG KÊ">TOÁN - THỐNG KÊ</option>
+          <option value="MỸ THUẬT CÔNG NGHIỆP">MỸ THUẬT CÔNG NGHIỆP</option>
+          <option value="KỸ THUẬT CÔNG TRÌNH">KỸ THUẬT CÔNG TRÌNH</option>
+          <option value="DƯỢC">DƯỢC</option>
+          <option value="LUẬT">LUẬT</option>
+          <option value="NGOẠI NGỮ">NGOẠI NGỮ</option>
+          <option value="QUẢN TRỊ KINH DOANH">QUẢN TRỊ KINH DOANH</option>
+          <option value="KẾ TOÁN">KẾ TOÁN</option>
+          <option value="TÀI CHÍNH NGÂN HÀNG">TÀI CHÍNH NGÂN HÀNG</option>
+          <option value="MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG">MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG</option>
+          <option value="LAO ĐỘNG VÀ CÔNG ĐOÀN">LAO ĐỘNG VÀ CÔNG ĐOÀN</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+        <table class="table table-class" id= "table-id">
+          <% thongbaos = thongbaos.reverse() %>
+          <% thongbaos.forEach(e => { %> 
+            <tr>
+                <td>
+                    <a href="/tatcathongbao/<%= e._id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= e.khoa %> </h5>
+                        <small class="text-muted"><%= e.thoigian %></small>
+                        </div>
+                        <p class="mb-1"><%= e.noidung %></p>
+                    </a>
+                </td>
+            </tr>
+          <% }) %>
+        </table>
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li data-page="prev" class="page-item">
+                    <span> <span class="sr-only">(current)</span></span>
+                </li>
+                
+                <li data-page="next" id="prev" class="page-item">
+                    <span> <span class="sr-only">(current)</span></span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>

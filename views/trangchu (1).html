@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <title>Trang chủ</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light collapse navbar-collaps">
+        <a class="navbar-brand">Student Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Xem tất cả <span class="sr-only">(current)</span></a>
+              </li>
+            
+          </ul>
+          
+        </div>
+    </nav>
+   
+    <div class="collapse" id="collapseExample">
+        <form class="container p-3 position-center">
+            <h3>Chỉnh sửa thông tin cá nhân</h3>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Tên:</label>
+              <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Lớp:</label>
+                <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Khoa:</label>
+                <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+    <div class="container- pt-3">
+        <div class="row">
+          <div class="col-7">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="jumbotron" style="background-color: transparent;">
+                        <h5>Nguyễn Phạm Mạnh Cường</h5>
+                        <small>21/02/2021</small>
+                        <br><br>
+                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <a class="btn btn-info btn-sm" href="#" role="button">Fix</a>
+                        <a class="btn btn-danger btn-sm" href="#" role="button">Delete</a>
+                        <a class="btn btn-primary btn-sm" href="#" role="button" data-toggle="collapse" data-target="#cmt" aria-expanded="false">Bình luận</a>
+
+                        <hr class="my-4">
+                         
+                      
+                      <div class="collapse" id="cmt">
+                        
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Nhập bình luận..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button">Gửi</button>
+                            </div>
+                          </div>                        
+                       
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">Tùng Núi</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">16/05/021</h6>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="card-link">Sửa</a>
+                              <a href="#" class="card-link">Xóa</a>
+                            </div>
+                          </div>
+
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">Tùng Thủy</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">16/05/021</h6>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <!-- <a href="#" class="card-link">Sửa</a>
+                              <a href="#" class="card-link">Xóa</a> -->
+                            </div>
+                          </div>
+                          
+                          
+                      </div>
+                        
+                      </div>
+                </li>
+
+
+              </ul>
+          </div>
+
+
+          <div class="col-5">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Welcome Nguyễn Phạm Mạnh Cường</h5>
+                <p class="card-text">Chào mừng đến với hệ thống thông tin sinh viên.</p>
+                <a href="#" class="btn btn-info">Chỉnh sửa thông tin</a>
+                <a href="#" class="btn btn-danger">Đăng xuất</a>
+
+              </div>
+            </div>
+            <div class="list-group pt-5">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <h5 class="mb-1">Mục thông báo</h5>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Khoa Công nghệ thông tin</h5>
+                    <small class="text-muted">14/05/2021</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Phòng Đại học</h5>
+                    <small class="text-muted">14/05/2021</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Khoa Điện</h5>
+                    <small class="text-muted">14/05/2021</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+</body>
+</html>
